@@ -7,7 +7,7 @@ package javaapplication11;
 import java.util.Scanner;
 /**
  *
- * @author r2kar
+ * @author samra
  */
 
 public class JavaApplication11 {
@@ -46,19 +46,32 @@ public class JavaApplication11 {
                 break;
      }
     }
+    public boolean isSeason(){
+        
+        boolean status=false;
+        for (Seasons s : Seasons.values()) {
+            if (s.equals(this.season)) {
+                status= true;
+               
+            }
+        }
+        
+        return status;
+    }
     public static void main(String[] args) {
         // TODO code application logic here
         // try to get the input (myStr) from the user
         String myStr;
-        System.out.print("ENter the value");
+        System.out.print("Enter the value");
         Scanner input=new Scanner(System.in);
         myStr=input.nextLine();
         System.out.println();
         JavaApplication11 test1= new JavaApplication11(Seasons.valueOf(myStr));
         test1.seasonDescription();
-        //test1.isSeason();
+        boolean b=test1.isSeason();
         int ord = Seasons.valueOf(myStr).ordinal();
         System.out.println(Seasons.valueOf(myStr).ordinal());
+        System.out.println("Season is "+b);
         //a for loop that iterated thru the Seasons Enum using values() method
         for (Seasons mySeason: Seasons.values())
         {
@@ -68,10 +81,7 @@ public class JavaApplication11 {
        
         }
     
-    public boolean isSeason(){
-        boolean status=true;
-        return status;
-    }
+    
     }
     
 
